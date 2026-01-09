@@ -18,7 +18,7 @@ class VextempController extends Controller
     }
     
     public function products(){
-        return view('admin.dashboard');
+        return view('frontend.products');
     }
     public function blog(){
         return view('frontend.blog');
