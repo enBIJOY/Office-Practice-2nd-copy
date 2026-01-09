@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\LayoutController;
+use App\Http\Controllers\VextempController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +22,15 @@ use App\Http\Controllers\LayoutController;
 // });
 
 Route::get('/', function () {
-    return view('layout.index');
+    return view('frontend.index');
 });
+
+Route::get('contacts', [VextempController::class, 'contacts'])->name('frontend.contacts');
+Route::get('products', [VextempController::class, 'products'])->name('frontend.products');
+Route::get('blog', [VextempController::class, 'blog'])->name('frontend.blog');
+Route::get('home', [VextempController::class, 'home'])->name('frontend.home');
+
+
 Route::get('feature', [LayoutController::class, 'feature'])->name('layout.feature');
 
 
