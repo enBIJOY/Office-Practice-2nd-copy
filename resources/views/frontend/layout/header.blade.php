@@ -58,9 +58,14 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('frontend.contacts') }}">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}">login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">Registration</a>
+          </li>
 
         </ul>
-
       </div>
     </nav>
   </div>
