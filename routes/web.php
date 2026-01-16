@@ -26,6 +26,11 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+Route::get('local/{local}', function($local){
+    Session(['local'=>$local]);
+    return back();
+})->name('local');
+
 Route::get('contacts', [VextempController::class, 'contacts'])->name('frontend.contacts');
 Route::get('products', [VextempController::class, 'products'])->name('frontend.products');
 Route::get('blog', [VextempController::class, 'blog'])->name('frontend.blog');

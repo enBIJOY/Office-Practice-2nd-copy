@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\User;
 use Hash;
+use App\Mail\NewUserWelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 class VextempController extends Controller
 {
@@ -60,14 +62,15 @@ class VextempController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
-        
         $user->save();
         
-        if($user){
+        $mail = Mail::to($user->email)->send(new NewUserWelcomeMail($user));
+        
+        if($user && $mail){
             return view("auth.registration-success")->with('Success','Great! registration-success');
         }
         return redirect("register")->withSuccess('Try Again Register');
-    }
+    }   
 
     public function dashboard()
     {

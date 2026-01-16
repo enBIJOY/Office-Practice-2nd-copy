@@ -59,10 +59,25 @@
             <a class="nav-link" href="{{ route('frontend.contacts') }}">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">login</a>
+            <a class="nav-link" href="{{ route('login') }}">{{__('login')}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">Registration</a>
+            <a class="nav-link" href="{{ route('register') }}">{{__('Registration')}}</a>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @if(Session()->get('local')=='english')
+                  En
+                @else
+                  Bn
+                @endif
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ route('local','english') }}">English</a></li>
+                <li><a class="dropdown-item" href="{{ route('local','bangla') }}">Bangla</a></li>
+              </ul>
+            </div>
           </li>
 
         </ul>
